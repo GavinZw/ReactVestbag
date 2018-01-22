@@ -4,18 +4,20 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  WebView,
-  Dimensions,
-  Alert,
-  Image,
-  Linking,
-  TouchableHighlight
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    WebView,
+    Dimensions,
+    Alert,
+    Image,
+    Linking,
+    TouchableOpacity,
+    NativeModules,
+    Settings
 } from 'react-native';
 
 var dis = Dimensions.get('window');
@@ -26,223 +28,282 @@ var DISABLED_WASH = 'rgba(255,255,255,0.25)';
 
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = 'http://www.baidu.com';
-var BACKGROUND_URL = 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1516525219&di=8d42d3c262c53f70075da45989d297d6&src=http://img5.duitang.com/uploads/item/201411/09/20141109003726_44KAY.jpeg';
 
 const WEBVIEW_HEIGHT = dis.height;
-const TABBAR_HEIGHT = 60;
-const TABBAR_ITEM_WIDTH = dis.width/5;
+const TABBAR_HEIGHT = 45;
+const TABBAR_ITEM_WIDTH = dis.width / 5;
 
+const BMOB_URL = 'https://api.bmob.cn/1/classes/onestop';
 
-var base64Icon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAQAAACSR7JhAAADtUlEQVR4Ac3YA2Bj6QLH0XPT1Fzbtm29tW3btm3bfLZtv7e2ObZnms7d8Uw098tuetPzrxv8wiISrtVudrG2JXQZ4VOv+qUfmqCGGl1mqLhoA52oZlb0mrjsnhKpgeUNEs91Z0pd1kvihA3ULGVHiQO2narKSHKkEMulm9VgUyE60s1aWoMQUbpZOWE+kaqs4eLEjdIlZTcFZB0ndc1+lhB1lZrIuk5P2aib1NBpZaL+JaOGIt0ls47SKzLC7CqrlGF6RZ09HGoNy1lYl2aRSWL5GuzqWU1KafRdoRp0iOQEiDzgZPnG6DbldcomadViflnl/cL93tOoVbsOLVM2jylvdWjXolWX1hmfZbGR/wjypDjFLSZIRov09BgYmtUqPQPlQrPapecLgTIy0jMgPKtTeob2zWtrGH3xvjUkPCtNg/tm1rjwrMa+mdUkPd3hWbH0jArPGiU9ufCsNNWFZ40wpwn+62/66R2RUtoso1OB34tnLOcy7YB1fUdc9e0q3yru8PGM773vXsuZ5YIZX+5xmHwHGVvlrGPN6ZSiP1smOsMMde40wKv2VmwPPVXNut4sVpUreZiLBHi0qln/VQeI/LTMYXpsJtFiclUN+5HVZazim+Ky+7sAvxWnvjXrJFneVtLWLyPJu9K3cXLWeOlbMTlrIelbMDlrLenrjEQOtIF+fuI9xRp9ZBFp6+b6WT8RrxEpdK64BuvHgDk+vUy+b5hYk6zfyfs051gRoNO1usU12WWRWL73/MMEy9pMi9qIrR4ZpV16Rrvduxazmy1FSvuFXRkqTnE7m2kdb5U8xGjLw/spRr1uTov4uOgQE+0N/DvFrG/Jt7i/FzwxbA9kDanhf2w+t4V97G8lrT7wc08aA2QNUkuTfW/KimT01wdlfK4yEw030VfT0RtZbzjeMprNq8m8tnSTASrTLti64oBNdpmMQm0eEwvfPwRbUBywG5TzjPCsdwk3IeAXjQblLCoXnDVeoAz6SfJNk5TTzytCNZk/POtTSV40NwOFWzw86wNJRpubpXsn60NJFlHeqlYRbslqZm2jnEZ3qcSKgm0kTli3zZVS7y/iivZTweYXJ26Y+RTbV1zh3hYkgyFGSTKPfRVbRqWWVReaxYeSLarYv1Qqsmh1s95S7G+eEWK0f3jYKTbV6bOwepjfhtafsvUsqrQvrGC8YhmnO9cSCk3yuY984F1vesdHYhWJ5FvASlacshUsajFt2mUM9pqzvKGcyNJW0arTKN1GGGzQlH0tXwLDgQTurS8eIQAAAABJRU5ErkJggg==';
-
+var MSUnityManager = NativeModules.MSUnityManager;
 
 export default class App extends Component {
 
-  state = {
-    url: DEFAULT_URL,
-    backButtonEnabled: false,
-    forwardButtonEnabled: false,
-    loading: true,
-    scalesPageToFit: true,
-    isShowWap:true,
-    isShowTabbar:true,
-  };
+    constructor(){
+        super();
+        this.state = {
+            wapUrl: DEFAULT_URL,
+            reviewStatus:2,
+            isShowWap: true,
+            isShowTabbar: true,
+            jpushAppKey: '',
+            appStoreUrl: '',
+            imageAlertUrl: '',
 
-  componentWillMount(){
-    // console.log('***1*********');
-    //当前时间
-    var nowTime = (new Date());
-    console.log(nowTime.valueOf());
-    console.log('***2*********');
-  }
+            // loading: false,
+            isUpdateConfig:false,
+        };
 
-  _onPressImageView(){
-Alert.alert('fadfasdf','fsdafasdfasdf')
-  }
+    }
 
-  _renderTabbarView(){
-    if(this.state.isShowTabbar ){
-      return <View  style={styles.tabbar}>  
-                <TouchableHighlight onPress={this._onPressImageView}>
-                <View style={styles.tabItem}>
-                   <Image 
-                    style={styles.itemImg}
-                    source={{uri: base64Icon}}
-                    />
-                </View>               
-                </TouchableHighlight>
 
-                <TouchableHighlight onPress={this._onPressImageView}>
-                <View style={styles.tabItem}>
-                   <Image 
-                    style={styles.itemImg}
-                    source={{uri: base64Icon}}
-                    />
-                </View>               
-                </TouchableHighlight>
+    componentWillMount() {
+        // console.log('***1*********');
+        //当前时间
+        var nowTime = (new Date());
+        console.log(nowTime.valueOf());
+        console.log('***2*********');
 
-                <TouchableHighlight onPress={this._onPressImageView}>
-                <View style={styles.tabItem}>
-                   <Image 
-                    style={styles.itemImg}
-                    source={{uri: base64Icon}}
-                    />
-                </View>               
-                </TouchableHighlight>
+        this._fetchRemoteConfig();
+    }
 
-                <TouchableHighlight onPress={this._onPressImageView}>
-                <View style={styles.tabItem}>
-                   <Image 
-                    style={styles.itemImg}
-                    source={{uri: base64Icon}}
-                    />
-                </View>               
-                </TouchableHighlight>
+    _fetchRemoteConfig(){
+        if (this.state.isUpdateConfig) return;
 
-                <TouchableHighlight onPress={this._onPressImageView}>
-                <View style={styles.tabItem}>
-                   <Image 
-                    style={styles.itemImg}
-                    source={{uri: base64Icon}}
-                    />
-                </View>               
-                </TouchableHighlight>
-                
-             </View>
-    } 
+        let  appid = Settings.get('application-Id');
+        let  restkey = Settings.get('rest-api-key');
 
-    return null;
-  }
+        fetch(BMOB_URL,{
+            method:'get',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-Bmob-REST-API-Key':restkey,
+                'X-Bmob-Application-Id':appid,
+            },
+            cache:'no-store',
+        }).then(response => {
+            return response.ok? response.json() : null;
+        }).then(json =>{
+            if (!json) {
+                return;
+            }
+            let config = json['results'][0];
+            this.setState({
+                wapUrl: String(config['wapUrl']),
+                reviewStatus: Number(config['reviewStatus']),
+                isShowWap: Boolean(config['isShowWap']),
+                isShowTabbar: Boolean(config['isShowTabbar']),
+                jpushAppKey: String(config['jpushAppKey']),
+                appStoreUrl: String(config['appStoreUrl']),
+                imageAlertUrl: String(config['imageAlertUrl']),
 
-  _renderMapView(){
-    let web_h = this.state.isShowTabbar?  (WEBVIEW_HEIGHT - TABBAR_HEIGHT) :WEBVIEW_HEIGHT;
+                isUpdateConfig: true,
+            });
+            if (Number(config['reviewStatus']) == 2){
+                MSUnityManager.receiveConfig(this.state.jpushAppKey);
+            }else {
+                MSUnityManager.addEvent('');
+            }
+        }).catch(error => {
+            console.error('****error:' +error);
+        })
+     }
 
-    return <View style={styles.wapContainer}>
-               <WebView 
-                  ref={WEBVIEW_REF}
-                  style={[styles.webView,{height:web_h}]}
-                  automaticallyAdjustContentInsets={false}          
-                  source={{uri: this.state.url}}
-                  javaScriptEnabled={true}
-                  domStorageEnabled={true}
-                  decelerationRate="normal"
-                  renderError={this.renderError}
-                  onNavigationStateChange={this.onNavigationStateChange}   
-                  startInLoadingState={true}
-                  scalesPageToFit={this.state.scalesPageToFit}
-              > 
-              </WebView>
-              {this._renderTabbarView()}
-          </View>
-  }
+    _renderTabbarView() {
+        if (this.state.isShowTabbar) {
+            return <View style={styles.tabbar}>
+                <TouchableOpacity activeOpacity={0.5} onPress={this.goHome}>
+                    <View style={styles.tabItem}>
+                        <Image
+                            style={styles.itemImg}
+                            source={require('./Img/home.png')}
+                        />
+                    </View>
+                </TouchableOpacity>
 
-  render() {
-    return (
-      <View  style={styles.container}>
-      {
-        this.state.isShowWap?
-        this._renderMapView()
-       :
-        <TouchableHighlight onPress={this._onPressImageView}>
-          <Image 
-            style={styles.imgView}
-            source= {{url: BACKGROUND_URL}}
-            />
-        </TouchableHighlight>
-      }
-       </View>
-    );
-  }
+                <TouchableOpacity activeOpacity={0.5} onPress={this.goBack}>
+                    <View style={styles.tabItem}>
+                        <Image
+                            style={styles.itemImg}
+                            source={require('./Img/goBack.png')}
+                        />
+                    </View>
+                </TouchableOpacity>
 
-  goBack = () => {
-    this.refs[WEBVIEW_REF].goBack();
-  };
+                <TouchableOpacity activeOpacity={0.5} onPress={this.goForward}>
+                    <View style={styles.tabItem}>
+                        <Image
+                            style={styles.itemImg}
+                            source={require('./Img/goForward.png')}
+                        />
+                    </View>
+                </TouchableOpacity>
 
-  goForward = () => {
-    this.refs[WEBVIEW_REF].goForward();
-  };
+                <TouchableOpacity activeOpacity={0.5} onPress={this.reload}>
+                    <View style={styles.tabItem}>
+                        <Image
+                            style={styles.itemImg}
+                            source={require('./Img/reload.png')}
+                        />
+                    </View>
+                </TouchableOpacity>
 
-  reload = () => {
-    this.refs[WEBVIEW_REF].reload();
-  };
+                <TouchableOpacity activeOpacity={0.5} onPress={this.closeApp}>
+                    <View style={styles.tabItem}>
+                        <Image
+                            style={styles.itemImg}
+                            source={require('./Img/close.png')}
+                        />
+                    </View>
+                </TouchableOpacity>
 
-  onShouldStartLoadWithRequest = (event) => {
-    // Implement any custom loading logic here, don't forget to return!
-    return true;
-  };
+            </View>
+        }
 
-  renderError = () => {
-    Alert.alert(
-      '请检查网络',
-      '请检查您的网络是否正常,谢谢!',
-      [
-        {text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: '好的', onPress: () => console.log('OK Pressed')},
-      ],
-    );
-  };
+        return null;
+    }
 
-  _onPressImageView(){
-    Alert.alert(
-      '请检查网络',
-      '请检查您的网络是否正常,谢谢!',
-      [
-        {text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: '好的', onPress: () => Linking.openURL(DEFAULT_URL)},
-      ],
-    );
-  }
+    _renderMapView() {
+        let web_h = this.state.isShowTabbar ? (WEBVIEW_HEIGHT - TABBAR_HEIGHT) : WEBVIEW_HEIGHT;
 
-  // ---------------
+        return <View style={styles.wapContainer}>
+            <WebView
+                ref={WEBVIEW_REF}
+                style={[styles.webView, {height: web_h}]}
+                automaticallyAdjustContentInsets={false}
+                source={{uri: this.state.wapUrl}}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                decelerationRate="normal"
+                onNavigationStateChange={this.onNavigationStateChange}
+                startInLoadingState={true}
+                scalesPageToFit={true}
+            >
+            </WebView>
+            {this._renderTabbarView()}
+        </View>
+    }
+
+
+    render() {
+        return (
+            <View style={styles.container}>
+                {
+                    this.state.isShowWap ?
+                        this._renderMapView()
+                        :
+                        <TouchableOpacity activeOpacity={0.8} onPress={this._onPressImageView.bind((this))}>
+                            <Image
+                                style={styles.imgView}
+                                source={{url: this.state.imageAlertUrl}}
+                            />
+                        </TouchableOpacity>
+                }
+            </View>
+        );
+    }
+
+    goHome = () => {
+        for (var index = 0; index < 15; index++) {
+            this.goBack();
+        }
+    };
+
+    goBack = () => {
+        this.refs[WEBVIEW_REF].goBack();
+    };
+
+    goForward = () => {
+        this.refs[WEBVIEW_REF].goForward();
+    };
+
+    reload = () => {
+        this.refs[WEBVIEW_REF].reload();
+    };
+
+    closeApp = () => {
+        Alert.alert(
+            '友情提示',
+            '您是否要退出此应用?',
+            [
+                {text: '取消', style: 'cancel'},
+                {text: '好的', onPress: () => MSUnityManager.addEvent('')},
+            ],
+        );
+
+    };
+
+    onShouldStartLoadWithRequest = (event) => {
+        // Implement any custom loading logic here, don't forget to return!
+        return true;
+    };
+
+
+    _onPressImageView() {
+        let  url = this.state.appStoreUrl;
+        Linking.canOpenURL(url)
+            .then(supported => {
+            if (!supported) {
+                console.log('Can\'t handle url: ' + url);
+            } else {
+                return Linking.openURL(url);
+            }
+        })
+            .catch(err => console.error('An error occurred', err));
+
+    }
+
+    // ---------------
 
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
 
-  wapContainer:{
-    flex: 1,           
-    backgroundColor: TABBAR_HEIGHT,    
-    width:dis.width
-  },
-  
-  webView:{
-    flex: 1,  
-    position:'absolute',  
-    width:dis.width,
-    height:WEBVIEW_HEIGHT,
-  },
+    wapContainer: {
+        flex: 1,
+        backgroundColor: TABBAR_HEIGHT,
+        width: dis.width
+    },
 
-  tabbar:{
-    position:'absolute', 
-    flexDirection:'row',
-    width:dis.width,
-    height:TABBAR_HEIGHT,   
-    backgroundColor: IMGBACKGROUND_COLOR, 
-    bottom:0
-  },
+    webView: {
+        flex: 1,
+        position: 'absolute',
+        width: dis.width,
+        height: WEBVIEW_HEIGHT,
+    },
 
-  tabItem:{
-    flex:1,
-    width:TABBAR_ITEM_WIDTH,
-    height:TABBAR_HEIGHT, 
-  },
+    tabbar: {
+        position: 'absolute',
+        flexDirection: 'row',
+        width: dis.width,
+        height: TABBAR_HEIGHT,
+        backgroundColor: 'rgb(255,255,255)',
+        bottom: 0
+    },
 
-  itemImg:{
-    height:40,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+    tabItem: {
+        width: TABBAR_ITEM_WIDTH,
+        height: TABBAR_HEIGHT,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 
-  imgView:{
-    flex: 1,
-    width:dis.width,
-    backgroundColor: IMGBACKGROUND_COLOR,
-  },
+    itemImg: {
+        height: 40,
+        width: 40,
+    },
+
+    imgView: {
+        flex: 1,
+        width: dis.width,
+        backgroundColor: IMGBACKGROUND_COLOR,
+    },
 
 });

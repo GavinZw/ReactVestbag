@@ -1,0 +1,16 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+inhibit_all_warnings!
+# use_frameworks!
+
+workspace 'MSMySky'
+
+project './MSMySky.xcodeproj'
+target :MSMySky do
+  pod 'JPush'
+  pod 'Masonry'
+  pod 'SDWebImage'
+  pod 'AFNetworking'
+  pod 'ChameleonFramework'
+  pod 'MBProgressHUD'
+end

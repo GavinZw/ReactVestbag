@@ -13,4 +13,8 @@
 
 @property (nonatomic, strong) UIWindow *window;
 
+@property (nonatomic, strong,readonly) NSDictionary *launchOptions;
+
+- (void)receiveConfig:(NSString *)jpushAppKey;
+
 @end
