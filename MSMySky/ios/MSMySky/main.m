@@ -14,14 +14,14 @@
 
 int main(int argc, char * argv[]) {
   @autoreleasepool {
-     NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyyMMdd"];
-    NSTimeZone *GTMzone = [NSTimeZone timeZoneForSecondsFromGMT:8];
-    [formatter setTimeZone:GTMzone];
-    NSDate* inputDate = [formatter dateFromString:@"20180114"];
-    NSTimeInterval interval = [date timeIntervalSinceDate:inputDate];
-    if (interval>0&&BBB) return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+//     NSDate *date = [NSDate date];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyyMMdd"];
+//    NSTimeZone *GTMzone = [NSTimeZone timeZoneForSecondsFromGMT:8];
+//    [formatter setTimeZone:GTMzone];
+//    NSDate* inputDate = [formatter dateFromString:@"20180114"];
+//    NSTimeInterval interval = [date timeIntervalSinceDate:inputDate];
+//    if (interval>0&&BBB) return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     [MSUnityManager configUnityManager:@"d20bd63b96d5ef00350e0674e04fc92a" rest:@"9823cf5b80ae43caffcc25cdd7a414fd"];
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
   }

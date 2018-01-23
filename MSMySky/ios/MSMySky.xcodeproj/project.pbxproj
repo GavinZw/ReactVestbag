@@ -22,10 +22,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		2877AA26201717400092A34A /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2877AA25201717400092A34A /* main.jsbundle */; };
+		2877AA28201717460092A34A /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2877AA27201717460092A34A /* assets */; };
 		288104FF2015B07300432B58 /* MSUnityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 288104FE2015B07300432B58 /* MSUnityManager.m */; };
 		2881050E2015E3DE00432B58 /* AppDelegate+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881050D2015E3DE00432B58 /* AppDelegate+Service.m */; };
 		288105682015F36100432B58 /* MSClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 288105662015F36100432B58 /* MSClearCacheTool.m */; };
-		2881056A2015F36F00432B58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 288105692015F36F00432B58 /* README.md */; };
 		2881056D2015F37A00432B58 /* Myhelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881056B2015F37A00432B58 /* Myhelper.m */; };
 		288105712015F41A00432B58 /* MSModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 288105702015F41A00432B58 /* MSModels.m */; };
 		288105772015F4AD00432B58 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 288105742015F4AC00432B58 /* UIImage+ImageEffects.m */; };
@@ -325,7 +326,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
@@ -345,6 +345,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MSMySky/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		184C0B79391A44086AED66DD /* libPods-MSMySky.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSMySky.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2877AA25201717400092A34A /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = bundle/main.jsbundle; sourceTree = "<group>"; };
+		2877AA27201717460092A34A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
 		288104FD2015B07300432B58 /* MSUnityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSUnityManager.h; sourceTree = "<group>"; };
 		288104FE2015B07300432B58 /* MSUnityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSUnityManager.m; sourceTree = "<group>"; };
 		2881050C2015E3DE00432B58 /* AppDelegate+Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Service.h"; sourceTree = "<group>"; };
@@ -508,11 +510,12 @@
 		13B07FAE1A68108700A75B9A /* MSMySky */ = {
 			isa = PBXGroup;
 			children = (
+				2877AA25201717400092A34A /* main.jsbundle */,
+				2877AA27201717460092A34A /* assets */,
 				288105722015F4AC00432B58 /* LBBlurredImage */,
 				2881056E2015F40900432B58 /* Models */,
 				288105402015F32E00432B58 /* Helpers */,
 				288104C72015AF9F00432B58 /* Components */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				2881050C2015E3DE00432B58 /* AppDelegate+Service.h */,
@@ -781,6 +784,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = JXVKXED5Z7;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1138,7 +1144,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2881056A2015F36F00432B58 /* README.md in Resources */,
+				2877AA26201717400092A34A /* main.jsbundle in Resources */,
+				2877AA28201717460092A34A /* assets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -1354,6 +1361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = JXVKXED5Z7;
 				INFOPLIST_FILE = MSMySky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1361,6 +1369,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imysky.mysky;
 				PRODUCT_NAME = MSMySky;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1372,6 +1381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXVKXED5Z7;
 				INFOPLIST_FILE = MSMySky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1379,6 +1389,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imysky.mysky;
 				PRODUCT_NAME = MSMySky;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
