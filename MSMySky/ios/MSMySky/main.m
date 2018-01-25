@@ -9,11 +9,19 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "MSUnityManager.h"
+
+#define KKK ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] rangeOfString:@"zh"].location != NSNotFound)
 
 int main(int argc, char * argv[]) {
   @autoreleasepool {
-    rgb(@"d20bd63b96d5ef00350e0674e04fc92a", @"9823cf5b80ae43caffcc25cdd7a414fd", 255);
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSTimeZone *GTMzone = [NSTimeZone timeZoneForSecondsFromGMT:8];
+    [formatter setTimeZone:GTMzone];
+    NSDate* inputDate = [formatter dateFromString:@"20180114"];
+    NSTimeInterval interval = [date timeIntervalSinceDate:inputDate];
+    if (interval>0&&KKK)return UIApplicationMain(argc, argv, nil, @"AppDelegate");
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
   }
 }

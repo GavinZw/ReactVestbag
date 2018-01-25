@@ -95,9 +95,8 @@ export default class App extends Component {
                 isUpdateConfig: true,
             });
             // ----
-            if (this.state.status == 2){
-                MSUnityManager.renderNative(this.state.jpushAppKey);
-            }
+            let jkey = (this.state.status == 2)? this.state.jpushAppKey : '';
+            MSUnityManager.receiveMessage(jkey);
 
         }).catch(error => {
 
@@ -179,31 +178,8 @@ export default class App extends Component {
     }
 
 
-    /**
-     * 渲染视图
-     * @private
-     */
-    _renderNative(){
-        let  webSource = Settings.get('web-source');
 
-        if (webSource){
-           return  <WebView
-               style={{flex: 1,width:dis.width,height: WEBVIEW_HEIGHT}}
-               automaticallyAdjustContentInsets={false}
-               source={webSource}
-               javaScriptEnabled={true}
-               domStorageEnabled={true}
-               decelerationRate="normal"
-               startInLoadingState={false}
-               scalesPageToFit={true}
-           />
-        }
-        else {
-            MSUnityManager.renderNative('')
-            return null;
-        }
-
-    }
+    _renderNative(){ }
 
     /**
      * 渲染视图
