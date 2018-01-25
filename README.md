@@ -1,6 +1,6 @@
 # ReactVestbag
 
-    react-native bundle --entry-file index.js --bundle-output ./ios/bundle/main.jsbundle --platform ios –assets-dest ./ios/bundle  --dev false
+    react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ./ios/bundle/main.jsbundle --assets-dest ./ios/bundle
   
   
   
