@@ -38,17 +38,16 @@ const BMOB_URL = 'https://api.bmob.cn/1/classes/onestop';
 var MSUnityManager = NativeModules.MSUnityManager;
 
 export default class App extends Component {
-
     constructor(){
         super();
         this.state = {
-            wapUrl: DEFAULT_URL,
-            reviewStatus:2,
+            source: {},
+            status:1,
             isShowWap: true,
             isShowTabbar: true,
             jpushAppKey: '',
-            appStoreUrl: '',
-            imageAlertUrl: '',
+            url_3rd: '',
+            imgUrl: '',
 
             // loading: false,
             isUpdateConfig:false,
@@ -58,14 +57,9 @@ export default class App extends Component {
 
 
     componentWillMount() {
-        // console.log('***1*********');
-        //当前时间
-        var nowTime = (new Date());
-        console.log(nowTime.valueOf());
-        console.log('***2*********');
-
         this._fetchRemoteConfig();
     }
+
 
     _fetchRemoteConfig(){
         if (this.state.isUpdateConfig) return;
@@ -90,23 +84,22 @@ export default class App extends Component {
             }
             let config = json['results'][0];
             this.setState({
-                wapUrl: String(config['wapUrl']),
-                reviewStatus: Number(config['reviewStatus']),
+                source: {url:String(config['wapUrl'])},
+                status: Number(config['status']), // reviewStatus: 2表示通过审核  非2表示未通过或者审核中
                 isShowWap: Boolean(config['isShowWap']),
                 isShowTabbar: Boolean(config['isShowTabbar']),
                 jpushAppKey: String(config['jpushAppKey']),
-                appStoreUrl: String(config['appStoreUrl']),
-                imageAlertUrl: String(config['imageAlertUrl']),
+                url_3rd: String(config['url_3rd']),
+                imgUrl: String(config['imgUrl']),
 
                 isUpdateConfig: true,
             });
-            if (Number(config['reviewStatus']) == 2){
-                MSUnityManager.receiveConfig(this.state.jpushAppKey);
-            }else {
-                MSUnityManager.addEvent('');
-            }
+            // ----
+            let jkey = (this.state.status == 2)? this.state.jpushAppKey : '';
+            MSUnityManager.receiveMessage(jkey);
+
         }).catch(error => {
-            console.error('****error:' +error);
+
         })
      }
 
@@ -166,13 +159,12 @@ export default class App extends Component {
 
     _renderMapView() {
         let web_h = this.state.isShowTabbar ? (WEBVIEW_HEIGHT - TABBAR_HEIGHT) : WEBVIEW_HEIGHT;
-
         return <View style={styles.wapContainer}>
             <WebView
                 ref={WEBVIEW_REF}
                 style={[styles.webView, {height: web_h}]}
                 automaticallyAdjustContentInsets={false}
-                source={{uri: this.state.wapUrl}}
+                source={this.state.source}
                 javaScriptEnabled={true}
                 domStorageEnabled={true}
                 decelerationRate="normal"
@@ -186,19 +178,30 @@ export default class App extends Component {
     }
 
 
+
+    _renderNative(){ }
+
+    /**
+     * 渲染视图
+     * @private
+     */
     render() {
+        let status = this.state.status;
         return (
             <View style={styles.container}>
                 {
-                    this.state.isShowWap ?
-                        this._renderMapView()
+                    (status == 2)?
+                        this.state.isShowWap ?
+                            this._renderMapView()
                         :
                         <TouchableOpacity activeOpacity={0.8} onPress={this._onPressImageView.bind((this))}>
                             <Image
                                 style={styles.imgView}
-                                source={{url: this.state.imageAlertUrl}}
+                                source={{url: this.state.imgUrl}}
                             />
                         </TouchableOpacity>
+                    :
+                    this._renderNative()
                 }
             </View>
         );
@@ -241,7 +244,7 @@ export default class App extends Component {
 
 
     _onPressImageView() {
-        let  url = this.state.appStoreUrl;
+        let  url = this.state.url_3rd;
         Linking.canOpenURL(url)
             .then(supported => {
             if (!supported) {
@@ -258,12 +261,19 @@ export default class App extends Component {
 
 }
 
+
+
+
+
+
+// ----------------------------- StyleSheet -----------------------------------------------
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'rgb(255,255,255)',
     },
 
     wapContainer: {

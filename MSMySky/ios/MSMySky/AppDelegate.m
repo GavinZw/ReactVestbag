@@ -1,7 +1,6 @@
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
- *  react-native bundle --entry-file index.js --bundle-output ./ios/bundle/index.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
  * This source code is licensed under the BSD-style license found in the
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
@@ -9,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+Service.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
@@ -23,24 +21,19 @@
 {
  _launchOptions = launchOptions;
 
-  NSURL *jsCodeLocation;
-//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-//   jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.223:8081/index.bundle?platform=ios&dev=true"];
-  jsCodeLocation = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"main.jsbundle" ofType:nil]];
- 
-
+  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"MSMySky"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
+  rootView.frame = [UIScreen mainScreen].bounds;
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  
-  self.window.rootViewController = rootViewController;
+  UIViewController *viewController = [UIViewController new];
+  viewController.view = rootView;
+  self.window.rootViewController = viewController;
   [self.window makeKeyAndVisible];
+  
   return YES;
 }
 
@@ -66,6 +59,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate{
+    return NO;
 }
 
 @end

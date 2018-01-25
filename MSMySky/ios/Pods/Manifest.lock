@@ -22,6 +22,7 @@ PODS:
     - JCore (~> 1.1.7)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
+  - pop (1.0.10)
   - SDWebImage (4.2.3):
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - JPush
   - Masonry
   - MBProgressHUD
+  - pop
   - SDWebImage
 
 SPEC CHECKSUMS:
@@ -41,8 +43,9 @@ SPEC CHECKSUMS:
   JPush: 9574d072cc37e93fa293ba69b43ce763c440943a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
 
-PODFILE CHECKSUM: 0957787682913e43facc85dc64779c34ebb5ff3e
+PODFILE CHECKSUM: 223ce51b04a6cb311350195164f69de5cda21892
 
 COCOAPODS: 1.4.0

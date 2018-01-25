@@ -9,12 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 
-#define BBB  [[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] rangeOfString:@"zh"].location !=NSNotFound
-
 @interface MSUnityManager : NSObject <
   RCTBridgeModule
 >
-
-+ (void)configUnityManager:(NSString *)appid rest:(NSString *)key;
 
 @end

@@ -13,4 +13,5 @@ target :MSMySky do
   pod 'AFNetworking'
   pod 'ChameleonFramework'
   pod 'MBProgressHUD'
+  pod 'pop'
 end
