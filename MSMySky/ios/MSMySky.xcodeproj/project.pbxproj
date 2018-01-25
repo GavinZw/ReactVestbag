@@ -57,6 +57,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* MSMySkyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MSMySkyTests.m */; };
 		4C18476E566DD5AFF96B1CFE /* libPods-MSMySky.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184C0B79391A44086AED66DD /* libPods-MSMySky.a */; };
+		5188E4662019DC6B009E423E /* MSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5188E4652019DC6B009E423E /* MSAppDelegate.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -398,6 +399,8 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD72200B20EC30F7165D85F /* Pods-MSMySky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSMySky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSMySky/Pods-MSMySky.debug.xcconfig"; sourceTree = "<group>"; };
 		30D9002B8C90DE4E48525C80 /* Pods-MSMySky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSMySky.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSMySky/Pods-MSMySky.release.xcconfig"; sourceTree = "<group>"; };
+		5188E4642019DC6B009E423E /* MSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSAppDelegate.h; sourceTree = "<group>"; };
+		5188E4652019DC6B009E423E /* MSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAppDelegate.m; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				2881050D2015E3DE00432B58 /* AppDelegate+Service.m */,
 				287EA4422019C3CC002D91E4 /* MSGameViewController.h */,
 				287EA4432019C3CC002D91E4 /* MSGameViewController.m */,
+				5188E4642019DC6B009E423E /* MSAppDelegate.h */,
+				5188E4652019DC6B009E423E /* MSAppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -1359,6 +1364,7 @@
 				288105712015F41A00432B58 /* MSModels.m in Sources */,
 				28829979201866F60043DFC0 /* Poke.m in Sources */,
 				2882997B201866F60043DFC0 /* PopAlertView.m in Sources */,
+				5188E4662019DC6B009E423E /* MSAppDelegate.m in Sources */,
 				288105782015F4AD00432B58 /* UIImageView+LBBlurredImage.m in Sources */,
 				2882997A201866F60043DFC0 /* PokeSend.m in Sources */,
 				287EA4442019C3CC002D91E4 /* MSGameViewController.m in Sources */,

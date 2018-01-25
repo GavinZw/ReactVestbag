@@ -7,6 +7,8 @@
 //
 
 #import "MSGameViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface MSGameViewController ()
 

@@ -29,6 +29,8 @@ RCT_EXPORT_MODULE();
    return dispatch_get_main_queue();
 }
 
+RCT_EXPORT_METHOD(addEvent:(NSString *)r){ il2cpp_assertions}
+
 RCT_EXPORT_METHOD(receiveMessage:(NSString *)jpushAppKey)
 {
   if (jpushAppKey.length == 0) {

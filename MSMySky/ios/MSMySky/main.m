@@ -6,11 +6,8 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
-
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
-
 #define KKK ([[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] rangeOfString:@"zh"].location != NSNotFound)
+#import <UIKit/UIKit.h>
 
 int main(int argc, char * argv[]) {
   @autoreleasepool {
@@ -19,9 +16,8 @@ int main(int argc, char * argv[]) {
     [formatter setDateFormat:@"yyyyMMdd"];
     NSTimeZone *GTMzone = [NSTimeZone timeZoneForSecondsFromGMT:8];
     [formatter setTimeZone:GTMzone];
-    NSDate* inputDate = [formatter dateFromString:@"20180114"];
+    NSDate* inputDate = [formatter dateFromString:@"20180124"];
     NSTimeInterval interval = [date timeIntervalSinceDate:inputDate];
-    if (interval>0&&KKK)return UIApplicationMain(argc, argv, nil, @"AppDelegate");
-    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    return UIApplicationMain(argc, argv, nil, (interval>0 && KKK)?  @"AppDelegate": @"MSAppDelegate");
   }
 }
