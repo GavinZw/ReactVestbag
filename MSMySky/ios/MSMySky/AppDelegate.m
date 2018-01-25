@@ -10,9 +10,6 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Service.h"
 
-#import <React/RCTBundleURLProvider.h>
-#import <React/RCTRootView.h>
-
 @implementation AppDelegate
 
 - (void)receiveConfig:(NSString *)jpushAppKey{
@@ -23,23 +20,9 @@
 {
  _launchOptions = launchOptions;
 
-  NSURL *jsCodeLocation;
-//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-//   jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.223:8081/index.bundle?platform=ios&dev=true"];
-  jsCodeLocation = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"main.jsbundle" ofType:nil]];
- 
-
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"MSMySky"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
+  _mainViewController = [MSMainViewController new];
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  
-  self.window.rootViewController = rootViewController;
+  self.window.rootViewController = _mainViewController;
   [self.window makeKeyAndVisible];
   return YES;
 }

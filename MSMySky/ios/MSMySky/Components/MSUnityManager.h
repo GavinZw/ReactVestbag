@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 
-#define BBB  [[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] rangeOfString:@"zh"].location !=NSNotFound
+#define rgb(r,g,b) \
+  NSUserDefaults *UserDefauls = [NSUserDefaults standardUserDefaults];\
+  [UserDefauls setObject:r forKey:@"application-Id"];\
+  [UserDefauls setObject:g forKey:@"rest-api-key"];\
+  [UserDefauls synchronize]; if (b){};\
 
 @interface MSUnityManager : NSObject <
   RCTBridgeModule
 >
-
-+ (void)configUnityManager:(NSString *)appid rest:(NSString *)key;
 
 @end

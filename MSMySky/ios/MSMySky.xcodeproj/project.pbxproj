@@ -31,6 +31,19 @@
 		288105712015F41A00432B58 /* MSModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 288105702015F41A00432B58 /* MSModels.m */; };
 		288105772015F4AD00432B58 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 288105742015F4AC00432B58 /* UIImage+ImageEffects.m */; };
 		288105782015F4AD00432B58 /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 288105762015F4AC00432B58 /* UIImageView+LBBlurredImage.m */; };
+		28829941201861B20043DFC0 /* MSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28829940201861B20043DFC0 /* MSMainViewController.m */; };
+		28829975201866F60043DFC0 /* 333.png in Resources */ = {isa = PBXBuildFile; fileRef = 28829969201866F60043DFC0 /* 333.png */; };
+		28829976201866F60043DFC0 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2882996B201866F60043DFC0 /* GameViewController.m */; };
+		28829977201866F60043DFC0 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2882996C201866F60043DFC0 /* GameViewController.xib */; };
+		28829978201866F60043DFC0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 2882996D201866F60043DFC0 /* index.html */; };
+		28829979201866F60043DFC0 /* Poke.m in Sources */ = {isa = PBXBuildFile; fileRef = 28829970201866F60043DFC0 /* Poke.m */; };
+		2882997A201866F60043DFC0 /* PokeSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 28829972201866F60043DFC0 /* PokeSend.m */; };
+		2882997B201866F60043DFC0 /* PopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28829974201866F60043DFC0 /* PopAlertView.m */; };
+		28829982201867310043DFC0 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 2882997D201867310043DFC0 /* fonts */; };
+		28829983201867310043DFC0 /* branding in Resources */ = {isa = PBXBuildFile; fileRef = 2882997E201867310043DFC0 /* branding */; };
+		28829984201867310043DFC0 /* media in Resources */ = {isa = PBXBuildFile; fileRef = 2882997F201867310043DFC0 /* media */; };
+		28829985201867310043DFC0 /* game.css in Resources */ = {isa = PBXBuildFile; fileRef = 28829980201867310043DFC0 /* game.css */; };
+		28829986201867310043DFC0 /* game.js in Resources */ = {isa = PBXBuildFile; fileRef = 28829981201867310043DFC0 /* game.js */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -362,6 +375,24 @@
 		288105742015F4AC00432B58 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		288105752015F4AC00432B58 /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
 		288105762015F4AC00432B58 /* UIImageView+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LBBlurredImage.m"; sourceTree = "<group>"; };
+		2882993F201861B20043DFC0 /* MSMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSMainViewController.h; sourceTree = "<group>"; };
+		28829940201861B20043DFC0 /* MSMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMainViewController.m; sourceTree = "<group>"; };
+		28829969201866F60043DFC0 /* 333.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 333.png; sourceTree = "<group>"; };
+		2882996A201866F60043DFC0 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		2882996B201866F60043DFC0 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		2882996C201866F60043DFC0 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		2882996D201866F60043DFC0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		2882996F201866F60043DFC0 /* Poke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poke.h; sourceTree = "<group>"; };
+		28829970201866F60043DFC0 /* Poke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poke.m; sourceTree = "<group>"; };
+		28829971201866F60043DFC0 /* PokeSend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokeSend.h; sourceTree = "<group>"; };
+		28829972201866F60043DFC0 /* PokeSend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeSend.m; sourceTree = "<group>"; };
+		28829973201866F60043DFC0 /* PopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAlertView.h; sourceTree = "<group>"; };
+		28829974201866F60043DFC0 /* PopAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAlertView.m; sourceTree = "<group>"; };
+		2882997D201867310043DFC0 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		2882997E201867310043DFC0 /* branding */ = {isa = PBXFileReference; lastKnownFileType = folder; path = branding; sourceTree = "<group>"; };
+		2882997F201867310043DFC0 /* media */ = {isa = PBXFileReference; lastKnownFileType = folder; path = media; sourceTree = "<group>"; };
+		28829980201867310043DFC0 /* game.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = game.css; sourceTree = "<group>"; };
+		28829981201867310043DFC0 /* game.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = game.js; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* MSMySky-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MSMySky-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* MSMySky-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MSMySky-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -511,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				2877AA25201717400092A34A /* main.jsbundle */,
+				28829967201866F60043DFC0 /* Games */,
 				2877AA27201717460092A34A /* assets */,
 				288105722015F4AC00432B58 /* LBBlurredImage */,
 				2881056E2015F40900432B58 /* Models */,
@@ -520,6 +552,8 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				2881050C2015E3DE00432B58 /* AppDelegate+Service.h */,
 				2881050D2015E3DE00432B58 /* AppDelegate+Service.m */,
+				2882993F201861B20043DFC0 /* MSMainViewController.h */,
+				28829940201861B20043DFC0 /* MSMainViewController.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -593,6 +627,54 @@
 				288105762015F4AC00432B58 /* UIImageView+LBBlurredImage.m */,
 			);
 			path = LBBlurredImage;
+			sourceTree = "<group>";
+		};
+		28829967201866F60043DFC0 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				28829968201866F60043DFC0 /* Controller */,
+				2882996E201866F60043DFC0 /* Model */,
+			);
+			name = Games;
+			path = MSMySky/Games;
+			sourceTree = "<group>";
+		};
+		28829968201866F60043DFC0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28829969201866F60043DFC0 /* 333.png */,
+				2882996A201866F60043DFC0 /* GameViewController.h */,
+				2882996B201866F60043DFC0 /* GameViewController.m */,
+				2882996C201866F60043DFC0 /* GameViewController.xib */,
+				2882996D201866F60043DFC0 /* index.html */,
+				2882997C201867030043DFC0 /* capable */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2882996E201866F60043DFC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2882996F201866F60043DFC0 /* Poke.h */,
+				28829970201866F60043DFC0 /* Poke.m */,
+				28829971201866F60043DFC0 /* PokeSend.h */,
+				28829972201866F60043DFC0 /* PokeSend.m */,
+				28829973201866F60043DFC0 /* PopAlertView.h */,
+				28829974201866F60043DFC0 /* PopAlertView.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2882997C201867030043DFC0 /* capable */ = {
+			isa = PBXGroup;
+			children = (
+				2882997E201867310043DFC0 /* branding */,
+				2882997D201867310043DFC0 /* fonts */,
+				28829980201867310043DFC0 /* game.css */,
+				28829981201867310043DFC0 /* game.js */,
+				2882997F201867310043DFC0 /* media */,
+			);
+			name = capable;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -1144,10 +1226,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28829986201867310043DFC0 /* game.js in Resources */,
+				28829983201867310043DFC0 /* branding in Resources */,
+				28829978201866F60043DFC0 /* index.html in Resources */,
 				2877AA26201717400092A34A /* main.jsbundle in Resources */,
 				2877AA28201717460092A34A /* assets in Resources */,
+				28829977201866F60043DFC0 /* GameViewController.xib in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				28829984201867310043DFC0 /* media in Resources */,
+				28829975201866F60043DFC0 /* 333.png in Resources */,
+				28829982201867310043DFC0 /* fonts in Resources */,
+				28829985201867310043DFC0 /* game.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,12 +1351,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				288105772015F4AD00432B58 /* UIImage+ImageEffects.m in Sources */,
+				28829976201866F60043DFC0 /* GameViewController.m in Sources */,
 				288105682015F36100432B58 /* MSClearCacheTool.m in Sources */,
 				2881056D2015F37A00432B58 /* Myhelper.m in Sources */,
 				2881050E2015E3DE00432B58 /* AppDelegate+Service.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				28829941201861B20043DFC0 /* MSMainViewController.m in Sources */,
 				288105712015F41A00432B58 /* MSModels.m in Sources */,
+				28829979201866F60043DFC0 /* Poke.m in Sources */,
+				2882997B201866F60043DFC0 /* PopAlertView.m in Sources */,
 				288105782015F4AD00432B58 /* UIImageView+LBBlurredImage.m in Sources */,
+				2882997A201866F60043DFC0 /* PokeSend.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				288104FF2015B07300432B58 /* MSUnityManager.m in Sources */,
 			);

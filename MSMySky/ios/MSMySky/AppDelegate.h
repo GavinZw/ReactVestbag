@@ -8,12 +8,14 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "MSMainViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
-
 @property (nonatomic, strong,readonly) NSDictionary *launchOptions;
+
+@property (nonatomic, strong,readonly) MSMainViewController *mainViewController;
 
 - (void)receiveConfig:(NSString *)jpushAppKey;
 

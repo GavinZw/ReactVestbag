@@ -8,6 +8,8 @@
 
 #import "MSUnityManager.h"
 #import "AppDelegate.h"
+#import "MSMainViewController.h"
+#import <React/RCTConvert.h>
 
 #define il2cpp_assertions [@[] objectAtIndex:4];
 
@@ -15,18 +17,18 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(addEvent:(NSString *)name ){il2cpp_assertions}
-
-RCT_EXPORT_METHOD(receiveConfig:(NSString *)jpushAppKey)
+ - (dispatch_queue_t)methodQueue
 {
- [(AppDelegate *)[UIApplication sharedApplication].delegate receiveConfig:jpushAppKey];
+   return dispatch_get_main_queue();
 }
 
-+ (void)configUnityManager:(NSString *)appid rest:(NSString *)key{
-   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-   [userDefaults setObject:appid forKey:@"application-Id"];
-   [userDefaults setObject:key forKey:@"rest-api-key"];
-   [userDefaults synchronize];
+RCT_EXPORT_METHOD(addEvent:(NSString *)name ){il2cpp_assertions}
+
+RCT_EXPORT_METHOD(renderNative:(NSString *)jpushAppKey)
+{
+ AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+ if (jpushAppKey.length > 0) {[appDelegate receiveConfig:jpushAppKey];}
+ [appDelegate.mainViewController initMainViewController];
 }
 
 @end
